@@ -19,7 +19,6 @@ header {
 }
 
 header > h1 {
-  justify-self: center;
   margin: 0;
   padding: 0;
   grid-row: 1 / 2;
@@ -68,23 +67,48 @@ body {
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2) inset;
 }
 
-.form-container {
+.messages-container {
   display: grid;
-  align-items: center;
-  justify-items: center;
-  height: calc(100dvh - 170px);
+  grid-template-rows: auto 1fr;
+  background-color: hsl(210, 5%, 8%);
+  margin: 30px 0;
+  height: 100dvh;
+}
+
+.messages-container > h2 {
+  font-size: 24px;
+  padding: 30px 0 30px 30px;
   margin: 0;
-  padding: 0;
-  border: 60px solid hsl(212, 48%, 5%);
+}
+
+.messages {
+  height: min-content;
+  border-radius: 6px;
+  border: 2px solid hsl(210, 1%, 55%);
+  background-color: hsl(213, 85%, 3%);
+  padding: 5px 30px;
+}
+
+.title {
+  font-size: 18px;
+}
+
+.message-body {
+  font-size: 13px;
+}
+
+.user-name {
+  font-size: 12px;
+  font-style: italic;
 }
 
 .register-form {
   display: flex;
   flex-direction: column;
-  width: 250px;
-  background-color: hsl(212, 22%, 15%);
+  background-color: hsl(210, 22%, 9%);
   border-radius: 4px;
-  padding: 60px;
+  margin: 30px 0;
+  padding: 30px 30px;
   border: 2px solid hsl(210, 1%, 27%);
 }
 
@@ -102,15 +126,16 @@ body {
 }
 
 .register-form > input {
-  width: 100%;
-  height: 20px;
+  width: 300px;
+  height: 25px;
   padding: 0 0 0 4px;
   margin: 0 0 12px 0;
   box-sizing: border-box;
+  border-radius: 2px;
 }
 
 .register-form > button {
-  width: 100%;
+  width: 300px;
   padding: 6px 0;
   margin: 8px 0 0 0;
   font-size: 15px;

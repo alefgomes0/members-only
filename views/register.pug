@@ -1,19 +1,18 @@
 extends layout
 
 block content
-  div(class="form-container")
-    form(method="POST" action="" class="register-form")
-      h2= title
-      
-      label(for="first_name") First Name
-      input(type="text" for="first_name" placeholder="John" value=(user === undefined ? "" : user.first_name ))
-      label(for="last_name") Last Name
-      input(type="text" for="last_name" placeholder="Doe" value=(user === undefined ? "" : user.last_name))
-      label(for="email") Email
-      input(type="email" for="email" placeholder="johndoe@email.com" value=(user === undefined ? "" : user.email))
-      label(for="password") Password
-      input(type="password" for="password" )
-      label(for="confirmed_password") Confirm your password
-      input(type="password" for="confirmed_password")
+  form(method="POST" action="" class="register-form")
+    h2= title
+    
+    label(for="first_name") First Name
+    input(type="text" for="first_name" placeholder="John" value=(user === undefined ? "" : user.first_name ))
+    label(for="last_name") Last Name
+    input(type="text" for="last_name" placeholder="Doe" value=(user === undefined ? "" : user.last_name))
+    label(for="email") Email
+    input(type="email" for="email" placeholder="johndoe@email.com" value=(user === undefined ? "" : user.email))
+    label(for="password") Password
+    input(type="password" for="password" )
+    label(for="confirmed_password") Confirm your password
+    input(type="password" for="confirmed_password")
 
-      button(type="submit") REGISTER
+    button(type="submit") REGISTER
