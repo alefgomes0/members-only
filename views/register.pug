@@ -16,3 +16,8 @@ block content
     input(type="password" for="confirmed_password")
 
     button(type="submit") REGISTER
+
+    if errors  
+      ul
+        for error in errors
+          li!=error.msg
