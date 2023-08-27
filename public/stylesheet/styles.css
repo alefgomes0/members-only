@@ -76,21 +76,31 @@ body {
 }
 
 .messages-container > h2 {
-  font-size: 24px;
+  font-size: 27px;
   padding: 30px 0 30px 30px;
   margin: 0;
 }
 
 .messages {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   height: min-content;
   border-radius: 6px;
   border: 2px solid hsl(210, 1%, 55%);
   background-color: hsl(213, 85%, 3%);
-  padding: 5px 30px;
+  padding: 15px 30px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+.messages > * {
+  margin: 0;
+  padding: 0;
 }
 
 .title {
-  font-size: 18px;
+  font-size: 30px;
+  font-weight: 600;
 }
 
 .message-body {
