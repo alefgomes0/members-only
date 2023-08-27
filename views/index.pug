@@ -1,4 +1,10 @@
 extends layout
 
 block content
-  h2 Testando
+  div(class="messages-container")
+    h2 Messages
+    each message in messages
+      div(class="messages")
+        h3 #{message.title}
+        h3 #{message.body}
+        h3 #{message.user.full_name}
