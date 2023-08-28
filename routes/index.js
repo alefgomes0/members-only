@@ -4,6 +4,7 @@ require("passport");
 const messageBoard = require("../controllers/messageBoardController");
 const register = require("../controllers/registerController");
 const login = require("../controllers/loginController");
+const logout = require("../controllers/logoutController")
 const passport = require("passport");
 
 router.get("/", messageBoard.index);
@@ -20,11 +21,6 @@ router.post(
   })
 );
 
-router.get("/logout", (req, res, next) => {
-  req.logout(function(err) {
-    if (err) return next(err);
-  });
-  res.redirect("/")
-});
+router.get("/logout", logout.get)
 
 module.exports = router;
