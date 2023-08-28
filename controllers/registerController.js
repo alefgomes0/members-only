@@ -49,8 +49,7 @@ exports.post = [
       minUppercase: 1,
       minNumbers: 1,
       minSymbols: 1,
-    })
-    .withMessage("Passwords must be equal"),
+    }),
 
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
@@ -59,11 +58,14 @@ exports.post = [
       next("Passwords must be equal");
     }
 
+
     const user = new User({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
-      password: req.body.password,
+      password: await bcrypt.hash(req.body.password, 10),
+      is_member: false,
+      is_admin: false,
     });
 
     if (!errors.isEmpty()) {

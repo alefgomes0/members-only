@@ -1,0 +1,11 @@
+extends layout
+
+block content
+
+  form(class="sign-up-form" method="POST" action="")
+    h2= title
+
+    label(for="email") Email
+    input(type="email" name="email" placeholder="email@email.com" value=(user === undefined ? "" : user.email))
+    label(for="password") Password
+    input(type="password" name="password")
