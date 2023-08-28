@@ -1,12 +1,15 @@
 const express = require("express");
-require("dotenv").config();
+const app = express();
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const app = express();
+const session = require("express-session");
 const indexRouter = require("./routes/index");
+require("dotenv").config();
+require("./config/passport");
 
 const mongoose = require("mongoose");
+const passport = require("passport");
 const mongoDB = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@cluster0.q8yiqsr.mongodb.net/?retryWrites=true&w=majority`;
 async function main() {
   await mongoose.connect(mongoDB);
@@ -21,6 +24,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use(
+  session({
+    secret: "cats",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
 
 app.use("/", indexRouter);
 

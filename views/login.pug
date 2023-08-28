@@ -5,8 +5,8 @@ block content
   form(class="login-form" method="POST" action="")
     h2= title
 
-    label(for="email") Email
-    input(type="email" name="email" placeholder="email@email.com" value=(user === undefined ? "" : user.email))
+    label(for="username") Email
+    input(type="email" name="username" placeholder="email@email.com" value=(user === undefined ? "" : user.email))
     label(for="password") Password
     input(type="password" name="password")
-    button(type="submit") Continue
+    button(type="submit") Enter
