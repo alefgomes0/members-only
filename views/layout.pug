@@ -10,10 +10,19 @@ html(lang='en')
       h1
         a(href="/")= "Members Only"
       div(class="buttons-container")
-        a(href="/register")
-          button Register
-        a(href="/login")
-          button Login
+        if currentUser
+          a(href="/member")
+            button Become a member
+        else 
+          a(href="/register")
+            button Register
+
+        if currentUser
+          a(href="/logout")
+            button Logout
+        else
+          a(href="/login")
+            button Login
     main
       block content
     footer
