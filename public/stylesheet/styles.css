@@ -168,7 +168,7 @@ body {
 }
 
 .register-form > button,
-.sign-up-form > button {
+.login-form > button {
   width: 300px;
   padding: 6px 0;
   margin: 8px 0 0 0;
@@ -182,11 +182,17 @@ body {
 }
 
 .register-form > button:hover,
-.sign-up-form > button:hover {
+.login-form > button:hover {
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2) inset;
 }
 
-.sign-up-form {
+.error-email-taken {
+  margin-top: -8px;
+  margin-bottom: 12px;
+  color: hsl(12, 74%, 55%);
+}
+
+.login-form {
   display: flex;
   flex-direction: column;
   background-color: hsl(210, 22%, 9%);
@@ -196,22 +202,24 @@ body {
   border: 2px solid hsl(210, 1%, 27%);
 }
 
-.sign-up-form > * {
+.login-form > * {
   margin: 0;
   padding: 0;
 }
 
-.sign-up-form > h2 {
+.login-form > h2 {
   margin-bottom: 20px;
 }
 
-.sign-up-form > label {
+.login-form > label {
   margin-bottom: 5px;
 }
 
-.sign-up-form > input {
+.login-form > input {
   width: 300px;
   height: 25px;
   margin-bottom: 15px;
+  padding: 0 0 0 4px;
   border-radius: 4px;
+  box-sizing: border-box;
 }

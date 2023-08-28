@@ -6,12 +6,18 @@ block content
     
     label(for="first_name") First Name
     input(type="text" name="first_name" placeholder="John" value=(user === undefined ? "" : user.first_name ))
+
     label(for="last_name") Last Name
     input(type="text" name="last_name" placeholder="Doe" value=(user === undefined ? "" : user.last_name))
+
     label(for="email") Email
     input(type="email" name="email" placeholder="johndoe@email.com" value=(user === undefined ? "" : user.email))
+    if errorEmailTaken
+      h6(class="error-email-taken") #{errorEmailTaken}
+
     label(for="password") Password
     input(type="password" name="password" )
+
     label(for="confirmed_password") Confirm your password
     input(type="password" name="confirmed_password")
 

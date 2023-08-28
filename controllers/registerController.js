@@ -40,24 +40,20 @@ exports.post = [
     .withMessage(
       "Password must have at least: 5 characters, 1 lower case, 1 upper case, 1 number and 1 special symbol"
     ),
-  body("confirmed_password")
-    .trim()
-    .escape()
-    .isStrongPassword({
-      minLength: 5,
-      minLowercase: 1,
-      minUppercase: 1,
-      minNumbers: 1,
-      minSymbols: 1,
-    }),
+  body("confirmed_password").trim().escape().isStrongPassword({
+    minLength: 5,
+    minLowercase: 1,
+    minUppercase: 1,
+    minNumbers: 1,
+    minSymbols: 1,
+  }),
 
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
-
-    if (req.body.password !== req.body.confirmed_password) {
-      next("Passwords must be equal");
-    }
-
+    const emailAlreadyRegistered = await User.findOne({
+      email: req.body.email,
+    });
+    const wrongPasswords = req.body.password === req.body.confirmed_password;
 
     const user = new User({
       first_name: req.body.first_name,
@@ -68,7 +64,21 @@ exports.post = [
       is_admin: false,
     });
 
-    if (!errors.isEmpty()) {
+    if (emailAlreadyRegistered) {
+      res.render("register", {
+        title: "Create an account",
+        user: user,
+        errorEmailTaken: "Email already registered",
+      });
+      return;
+    } else if (wrongPasswords) {
+      res.render("register", {
+        title: "Create an account",
+        user: user,
+        errorPasswordMismatch: "Passwords don't match",
+      });
+      return;
+    } else if (!errors.isEmpty()) {
       res.render("register", {
         title: "Create an account",
         user: user,

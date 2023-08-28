@@ -5,7 +5,7 @@ const asyncHandler = require("express-async-handler");
 
 
 exports.get = asyncHandler((req, res, next) => {
-  res.render("signUp", {
+  res.render("login", {
     title: "Log in"
   })
 })
