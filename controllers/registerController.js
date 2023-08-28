@@ -53,7 +53,7 @@ exports.post = [
     const emailAlreadyRegistered = await User.findOne({
       email: req.body.email,
     });
-    const wrongPasswords = req.body.password === req.body.confirmed_password;
+    const wrongPasswords = req.body.password !== req.body.confirmed_password;
 
     const user = new User({
       first_name: req.body.first_name,
@@ -71,14 +71,16 @@ exports.post = [
         errorEmailTaken: "Email already registered",
       });
       return;
-    } else if (wrongPasswords) {
+    }
+    if (wrongPasswords) {
       res.render("register", {
         title: "Create an account",
         user: user,
         errorPasswordMismatch: "Passwords don't match",
       });
       return;
-    } else if (!errors.isEmpty()) {
+    }
+    if (!errors.isEmpty()) {
       res.render("register", {
         title: "Create an account",
         user: user,

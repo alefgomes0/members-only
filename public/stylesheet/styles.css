@@ -186,7 +186,8 @@ body {
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2) inset;
 }
 
-.error-email-taken {
+.error-email-taken,
+.error-password-mismatch {
   margin-top: -8px;
   margin-bottom: 12px;
   color: hsl(12, 74%, 55%);

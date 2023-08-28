@@ -17,6 +17,8 @@ block content
 
     label(for="password") Password
     input(type="password" name="password" )
+    if errorPasswordMismatch
+      h6(class="error-password-mismatch") #{errorPasswordMismatch}
 
     label(for="confirmed_password") Confirm your password
     input(type="password" name="confirmed_password")
