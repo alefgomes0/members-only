@@ -7,6 +7,7 @@ const login = require("../controllers/loginController");
 const logout = require("../controllers/logoutController");
 const newMessage = require("../controllers/newMessageController");
 const passport = require("passport");
+const isAuth = require("./authMiddleware").isAuth;
 
 router.get("/", messageBoard.index);
 
@@ -22,7 +23,7 @@ router.post(
   })
 );
 
-router.get("/new-message", newMessage.get);
+router.get("/new-message", isAuth, newMessage.get);
 
 router.get("/logout", logout.get);
 
