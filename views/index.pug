@@ -7,7 +7,7 @@ block content
       div(class="messages")
         h3(class="title") #{message.title}
         h3(class="message-body") #{message.body}
-        if currentUser
+        if currentUser && currentUser.is_member
           h3(class="user-name-date") By #{message.user.full_name} at #{message.date_formatted}
         
         if currentUser && currentUser.is_admin
