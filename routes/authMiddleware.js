@@ -7,7 +7,7 @@ module.exports.isAuth = (req, res, next) => {
 };
 
 module.exports.isAdmin = (req, res, next) => {
-  req.isAuthenticated() && req.user.admin
+  req.isAuthenticated() && req.user.is_admin
   ? next()
   : res
       .status(401)
