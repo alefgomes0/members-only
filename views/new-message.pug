@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  form(method="POST" action="" class="message-form")
+    h2= title
+
+    label(for="title") Title
+    input(type="text" name="title" value=(message === undefined ? "" : message.title))
+
+    label(for="body") Message 
+    textarea(name="body" value=(message === undefined ? "" : message.body))
+
+    button(type="submit") SEND

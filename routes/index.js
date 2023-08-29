@@ -4,7 +4,8 @@ require("passport");
 const messageBoard = require("../controllers/messageBoardController");
 const register = require("../controllers/registerController");
 const login = require("../controllers/loginController");
-const logout = require("../controllers/logoutController")
+const logout = require("../controllers/logoutController");
+const newMessage = require("../controllers/newMessageController");
 const passport = require("passport");
 
 router.get("/", messageBoard.index);
@@ -21,6 +22,8 @@ router.post(
   })
 );
 
-router.get("/logout", logout.get)
+router.get("/new-message", newMessage.get);
+
+router.get("/logout", logout.get);
 
 module.exports = router;
