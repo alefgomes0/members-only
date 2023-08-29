@@ -9,7 +9,5 @@ exports.index = asyncHandler(async (req, res, next) => {
   res.render("index", {
     title: "Members Only",
     messages: allMessages,
-    showMessageForm: showMessageForm,
-    setShowForm: setShowForm
   });
 });
