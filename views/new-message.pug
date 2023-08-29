@@ -4,10 +4,15 @@ block content
   form(method="POST" action="" class="message-form")
     h2= title
 
-    label(for="title") Title
-    input(type="text" name="title" value=(message === undefined ? "" : message.title))
+    label(for="header") Title
+    input(type="text" name="header" value=(message === undefined ? "" : message.title))
 
     label(for="body") Message 
     textarea(name="body" value=(message === undefined ? "" : message.body))
 
     button(type="submit") SEND
+
+    if errors  
+      ul
+        for error in errors
+          li!=error.msg

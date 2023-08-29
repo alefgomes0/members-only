@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h2= title
+
+  form(class="member-form" method="POST" action="")
+    label(for="question") What's the best domestic pet?
+    input(name="question")
+    if error
+      h6(class="error-message") #{error}
+    button(type="submit") Become a member

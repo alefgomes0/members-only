@@ -10,7 +10,7 @@ html(lang='en')
       h1
         a(href="/")= "Members Only"
       div(class="buttons-container")
-        if currentUser
+        if currentUser && !currentUser.is_member
           a(href="/member")
             button Become a member
         else 
