@@ -9,3 +9,7 @@ block content
         h3(class="message-body") #{message.body}
         if currentUser
           h3(class="user-name-date") By #{message.user.full_name} at #{message.date_formatted}
+  
+  if currentUser
+    button(class="new-message")
+      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 36 36"><path fill="#3e79d0" d="M30 17H19V6a1 1 0 1 0-2 0v11H6a1 1 0 0 0-1 1a.91.91 0 0 0 1 .94h11V30a1 1 0 1 0 2 0V19h11a1 1 0 0 0 1-1a1 1 0 0 0-1-1Z" class="clr-i-outline clr-i-outline-path-1"/><path fill="none" d="M0 0h36v36H0z"/></svg>
