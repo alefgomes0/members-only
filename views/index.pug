@@ -10,11 +10,11 @@ block content
         if currentUser
           h3(class="user-name-date") By #{message.user.full_name} at #{message.date_formatted}
         
-
-        form(method="POST" action="/message/delete")
-          button(type="submit" class="delete-button")
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 256 256"><path fill="#992424" d="M205.66 194.34a8 8 0 0 1-11.32 11.32L128 139.31l-66.34 66.35a8 8 0 0 1-11.32-11.32L116.69 128L50.34 61.66a8 8 0 0 1 11.32-11.32L128 116.69l66.34-66.35a8 8 0 0 1 11.32 11.32L139.31 128Z"/></svg>
-  
+        if currentUser && currentUser.is_admin
+          form(method="POST" action=`/delete/:messageId/${message._id}`)
+            button(type="submit" class="delete-button")
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 256 256"><path fill="#992424" d="M205.66 194.34a8 8 0 0 1-11.32 11.32L128 139.31l-66.34 66.35a8 8 0 0 1-11.32-11.32L116.69 128L50.34 61.66a8 8 0 0 1 11.32-11.32L128 116.69l66.34-66.35a8 8 0 0 1 11.32 11.32L139.31 128Z"/></svg>
+    
   if currentUser
     button(class="new-message")
       a(href="/new-message")

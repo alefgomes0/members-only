@@ -11,3 +11,9 @@ exports.index = asyncHandler(async (req, res, next) => {
     messages: allMessages,
   });
 });
+
+exports.delete = asyncHandler(async (req, res, next) => {
+  const message = await Message.findById(req.params.id)
+  await Message.findOneAndRemove(message)
+  res.redirect("/")
+})
